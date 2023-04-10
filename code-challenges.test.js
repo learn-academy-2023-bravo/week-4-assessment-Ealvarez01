@@ -50,9 +50,9 @@ const colors2 = [
 
 // Process: GREEN!
 
+// PSEUDOCODE:
 // Create a function that takes in an array, removes the first item from the array and shuffles the remaining content.
 
-// PSEUDOCODE:
 // Input: an array ("takes in..")
 // Output: removes the first item from the array and shuffles the remaining content
 
@@ -69,7 +69,6 @@ const colors2 = [
 // Create a function named "shuffle" that uses the math logic Math.floor and Math.random with no parameters to randomly select an index starting at zero index and then we need to multiply the index plus 1 (since we want our array to be more than zero and begin at index 1. 
 // Now that you have set the code and math logic for the two functions "newArray" and "shuffle", you can create a new array to contain the newArray with any index value together with the newArray shuffle index to equal the newArray shuffle index together with the newArray with any index value (so it is constantly shuffling the array).  
 // Return the newArray containing the values that removes the first item from the array and shuffles the remaining content.
-
 
 const arrayContaining = (array) => {
   const newArray = array.slice()
@@ -125,9 +124,9 @@ describe("votes", () => {
 
 // Process: GREEN!
 
+// PSEUDOCODE:
 // Create a function that takes in an object that contains up votes and down votes and returns the end tally.
 
-// PSEUDOCODE:
 // Input: an object ("takes in..")
 // Output: contains up votes and down votes and returns the end tally.
 
@@ -139,7 +138,7 @@ describe("votes", () => {
 // Output: -31
 
 // Create a function named "votes" that takes in an object named "obj" that contains up votes and down votes and returns the end tally.
-//Create a function named "votesTally" that assigns the object and value of upVotes and use math logic to subtract the object and value of downVotes that will equal the sum of the votesTally.
+//Create a function named "votesTally" that assigns the object method and key value of upVotes and use math logic to subtract the object and key value of downVotes that will equal the sum of the votesTally.
 //Return the end tally of the sum of all votes. 
 
 const votes = (obj) => { 
@@ -173,7 +172,7 @@ describe("values", () => {
     // expect statement will contain the function call to call the given functions,
     // join the two arays to return only one array
     // place test variable outputs inside the .toEqual() matcher parameter to compare the given outputs
-      expect(values(dataArray1.concat(dataArray2))).toEqual(["array", "object", "number", "string", "Boolean", "null", "undefined"])
+      expect(values(dataArray1, dataArray2)).toEqual(["array", "object", "number", "string", "Boolean", "null", "undefined"])
   })
 })
 
@@ -191,32 +190,34 @@ describe("values", () => {
 
 // Process: GREEN!
 
-// Create a function that takes in two arrays as arguments and returns one array with no duplicate values.
-
 // PSEUDOCODE:
-// Input: two arrays as arguments ("takes in..")
-// Output: returns one array with no duplicate values
+// Create a function that takes in two arrays as arguments and returns one array with no duplicate values using the spread operator to pass in a dynamic number of arguments.
+
+// Input: two arrays as arguments ("takes in.")
+// Output: returns one array with no duplicate values.
 
 // Given arrays:
 // Input (array1): ["array", "object", "number", "string", "Boolean"]
 // Input (array2): ["string", "null", "Boolean", "string", "undefined"]
 // Output: ["array", "object", "number", "string", "Boolean", "null", "undefined"]
 
-// Create a function named "values" that takes in two arrays as arguments named "array1" and "array2".
-
-//Create a function named "votesTally" that assigns the object and value of upVotes and use math logic to subtract the object and value of downVotes that will equal the sum of the votesTally.
+// Create a function named "values" that takes in both given arrays as arguments using the spread operator naming it "...arrays".
+//Combine the given arrays by naming the function 'combinedArrays', assigning an empty array and then join both arrays using the .concat() method and passing the arrays as an argument using the spread operator. 
+// Create a 'newArray' function for your newly combined arrays and assign it by using the 'Array.from' constructor method which will take any object in the arrays, iterate over each element in the arrays and return values in the arrays. Then create a 'new Set' constructuctor method to create one set of both arrays to iterate over which will remove the duplicate elements of the combined arrays. 
+// Call on the last 'newArray' function that holds all of the completed logic of the functions and given arrays. 
 //Returns one array with no duplicate values.
 
 const values = (...arrays) => {
-  // const myValues = (myArray1, myArray2) => {
-    // const values = []
-    // let getValues = myValues(...values)
-// const values = (arraysOne, arraysTwo) => {
-  // let arrays = [...new Set(arrays)]
-  // let sinlgeValues = (...arrrays) =>{
-  // let uniqueValues = values.filter(index[index]) => {
-  // return arrays(...values).join(" ")
-  return arrays.join("")
-  // return arrayOne.filter(values).join("")
-  }
-// }
+  let combinedArrays = [].concat(...arrays)
+  let newArray = Array.from(new Set(combinedArrays))
+  return newArray
+}
+// PASSED!
+// PASS  ./code-challenges.test.js
+// values
+//   ✓ takes in two arrays as arguments and returns one array with no duplicate values.  (1 ms)
+
+// Test Suites: 1 passed, 1 total
+// Tests:       3 passed, 3 total
+// Snapshots:   0 total
+// Time:        0.131 s, estimated 1 s
